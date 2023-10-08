@@ -1,0 +1,32 @@
+{
+    "name": "packagit/dcat-admin-config",
+    "alias": "",
+    "description": "Config manager extension for dcat-admin",
+    "type": "library",
+    "keywords": ["dcat-admin", "extension"],
+    "homepage": "https://github.com/packagit/dcat-admin-config",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yin Qisen",
+            "email": "yinqisen@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "dcat/laravel-admin": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Packagit\\Dcat\\": "src/"
+        }
+    },
+    "extra": {
+        "dcat-admin": "Packagit\\Dcat\\ConfigServiceProvider",
+        "laravel": {
+            "providers": [
+                "Packagit\\Dcat\\ConfigServiceProvider"
+            ]
+        }
+    }
+}
