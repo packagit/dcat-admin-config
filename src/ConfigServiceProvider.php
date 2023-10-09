@@ -28,8 +28,11 @@ class ConfigServiceProvider extends ServiceProvider
     public function init()
     {
         parent::init();
-        foreach (ConfigModel::all() as $config) {
-            config([$config['name'] => $config['value']]);
+        $tableName = (new ConfigModel)->getTable();
+        if ((new ConfigModel)->getConnection()->getSchemaBuilder()->hasTable($tableName)) {
+            foreach (ConfigModel::all() as $config) {
+                config([$config['name'] => $config['value']]);
+            }
         }
     }
 
